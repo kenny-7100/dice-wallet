@@ -54,5 +54,11 @@
   "sensitiveHidden": "Gevoelige inhoud verborgen",
   "secretWarning": "Iedereen met deze woorden kan de portemonnee beheren. Maak geen screenshot, kopieer of verzend ze niet.",
   "addressCopied": "{name} adres gekopieerd",
-  "copyAddress": "Kopieer adres"
+  "copyAddress": "Kopieer adres",
+  "copyMnemonic": "Kopieer geheugensteuntje",
+  "copyMnemonicTitle": "Kopieer dit geheugensteuntje?",
+  "copyMnemonicWarning": "Het klembord kan door andere apps worden gelezen en behoudt mogelijk de inhoud ervan. Ga alleen verder als u het risico begrijpt en het onmiddellijk daarna oplost.",
+  "cancel": "Annuleer",
+  "confirmCopy": "Kopieer toch",
+  "mnemonicCopied": "Ezelsbruggetje gekopieerd. Maak uw klembord leeg na gebruik."
 }

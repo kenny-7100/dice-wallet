@@ -54,5 +54,11 @@
   "sensitiveHidden": "Conteúdo confidencial oculto",
   "secretWarning": "Qualquer pessoa com estas palavras pode controlar a carteira. Não faça capturas de tela, copie ou envie-os.",
   "addressCopied": "endereço {name} copiado",
-  "copyAddress": "Copiar endereço"
+  "copyAddress": "Copiar endereço",
+  "copyMnemonic": "Copiar mnemônico",
+  "copyMnemonicTitle": "Copiar este mnemônico?",
+  "copyMnemonicWarning": "A área de transferência pode ser lida por outros aplicativos e reter seu conteúdo. Continue apenas se você compreender o risco e eliminá-lo imediatamente depois.",
+  "cancel": "Cancelar",
+  "confirmCopy": "Copie mesmo assim",
+  "mnemonicCopied": "Mnemônico copiado. Limpe sua área de transferência após o uso."
 }

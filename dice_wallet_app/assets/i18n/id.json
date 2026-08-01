@@ -54,5 +54,11 @@
   "sensitiveHidden": "Konten sensitif disembunyikan",
   "secretWarning": "Siapa pun yang memiliki kata-kata ini dapat mengontrol dompet. Jangan mengambil tangkapan layar, menyalin, atau mengirimkannya.",
   "addressCopied": "alamat {name} disalin",
-  "copyAddress": "Salin alamat"
+  "copyAddress": "Salin alamat",
+  "copyMnemonic": "Salin mnemonik",
+  "copyMnemonicTitle": "Salin mnemonik ini?",
+  "copyMnemonicWarning": "Papan klip dapat dibaca oleh aplikasi lain dan dapat menyimpan kontennya. Lanjutkan hanya jika Anda memahami risikonya dan akan segera menyelesaikannya setelahnya.",
+  "cancel": "Batalkan",
+  "confirmCopy": "Tetap salin",
+  "mnemonicCopied": "Mnemonik disalin. Bersihkan clipboard Anda setelah digunakan."
 }

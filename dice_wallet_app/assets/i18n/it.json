@@ -54,5 +54,11 @@
   "sensitiveHidden": "Contenuti sensibili nascosti",
   "secretWarning": "Chiunque con queste parole può controllare il portafoglio. Non fare screenshot, copiarli o inviarli.",
   "addressCopied": "Indirizzo {name} copiato",
-  "copyAddress": "Copia indirizzo"
+  "copyAddress": "Copia indirizzo",
+  "copyMnemonic": "Copia mnemonica",
+  "copyMnemonicTitle": "Copiare questo mnemonico?",
+  "copyMnemonicWarning": "Gli appunti possono essere letti da altre app e potrebbero conservarne il contenuto. Continua solo se comprendi il rischio e lo eliminerai immediatamente dopo.",
+  "cancel": "Annulla",
+  "confirmCopy": "Copia comunque",
+  "mnemonicCopied": "Mnemonico copiato. Cancella gli appunti dopo l'uso."
 }

@@ -54,5 +54,11 @@
   "sensitiveHidden": "Contenu sensible masqué",
   "secretWarning": "Toute personne possédant ces mots peut contrôler le portefeuille. Ne les capturez pas, ne les copiez pas et ne les envoyez pas.",
   "addressCopied": "Adresse de {name} copiée",
-  "copyAddress": "Copier l'adresse"
+  "copyAddress": "Copier l'adresse",
+  "copyMnemonic": "Copier le mnémonique",
+  "copyMnemonicTitle": "Copiez ce mnémonique ?",
+  "copyMnemonicWarning": "Le presse-papiers peut être lu par d'autres applications et conserver son contenu. Ne continuez que si vous comprenez le risque et que vous l’éliminerez immédiatement après.",
+  "cancel": "Annuler",
+  "confirmCopy": "Copie quand même",
+  "mnemonicCopied": "Mnémonique copié. Videz votre presse-papiers après utilisation."
 }

@@ -184,6 +184,40 @@ class _HiddenMnemonic extends StatelessWidget {
 class _MnemonicContent extends StatelessWidget {
   const _MnemonicContent({required this.mnemonic});
   final String mnemonic;
+
+  Future<void> _confirmAndCopy(BuildContext context) async {
+    final strings = AppStrings.of(context);
+    final confirmed = await showDialog<bool>(
+      context: context,
+      builder: (dialogContext) => AlertDialog(
+        icon: const Icon(Icons.warning_amber_rounded),
+        title: Text(strings.text('copyMnemonicTitle')),
+        content: Text(strings.text('copyMnemonicWarning')),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(dialogContext, false),
+            child: Text(strings.text('cancel')),
+          ),
+          FilledButton(
+            onPressed: () => Navigator.pop(dialogContext, true),
+            child: Text(strings.text('confirmCopy')),
+          ),
+        ],
+      ),
+    );
+    if (confirmed != true || !context.mounted) return;
+
+    await Clipboard.setData(ClipboardData(text: mnemonic));
+    if (context.mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(strings.text('mnemonicCopied')),
+          duration: const Duration(seconds: 2),
+        ),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final words = mnemonic.split(' ');
@@ -264,6 +298,15 @@ class _MnemonicContent extends StatelessWidget {
               ),
             );
           },
+        ),
+        const SizedBox(height: 14),
+        SizedBox(
+          width: double.infinity,
+          child: OutlinedButton.icon(
+            onPressed: () => _confirmAndCopy(context),
+            icon: const Icon(Icons.copy_outlined),
+            label: Text(strings.text('copyMnemonic')),
+          ),
         ),
       ],
     );

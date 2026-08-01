@@ -30,6 +30,9 @@ const uiEnglish = {
   publicAddresses: 'Public addresses', publicAddressHelp: 'These addresses are safe to share. Copying never includes the mnemonic.',
   clearAndHome: 'Clear and return home', derivationComplete: 'Derivation complete', backupReminder: 'Nothing has been saved. Complete an offline backup now.',
   sensitiveHidden: 'Sensitive content hidden', secretWarning: 'Anyone with these words can control the wallet. Do not screenshot, copy, or send them.',
+  copyMnemonic: 'Copy mnemonic', copyMnemonicTitle: 'Copy this mnemonic?',
+  copyMnemonicWarning: 'The clipboard can be read by other apps and may retain its contents. Only continue if you understand the risk and will clear it immediately afterward.',
+  cancel: 'Cancel', confirmCopy: 'Copy anyway', mnemonicCopied: 'Mnemonic copied. Clear your clipboard after use.',
   addressCopied: '{name} address copied', copyAddress: 'Copy address',
 };
 

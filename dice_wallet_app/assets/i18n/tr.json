@@ -54,5 +54,11 @@
   "sensitiveHidden": "Hassas içerik gizlendi",
   "secretWarning": "Bu kelimelere sahip olan herkes cüzdanı kontrol edebilir. Ekran görüntüsünü almayın, kopyalamayın veya göndermeyin.",
   "addressCopied": "{name} adresi kopyalandı",
-  "copyAddress": "Adresi kopyala"
+  "copyAddress": "Adresi kopyala",
+  "copyMnemonic": "Anımsatıcıyı kopyala",
+  "copyMnemonicTitle": "Bu anımsatıcı kopyalansın mı?",
+  "copyMnemonicWarning": "Pano diğer uygulamalar tarafından okunabilir ve içeriğini koruyabilir. Yalnızca riski anlıyorsanız ve hemen ardından ortadan kaldıracaksanız devam edin.",
+  "cancel": "İptal",
+  "confirmCopy": "Yine de kopyala",
+  "mnemonicCopied": "Anımsatıcı kopyalandı. Kullandıktan sonra panonuzu temizleyin."
 }

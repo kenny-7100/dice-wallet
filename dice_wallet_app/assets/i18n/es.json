@@ -54,5 +54,11 @@
   "sensitiveHidden": "Contenido sensible oculto",
   "secretWarning": "Cualquiera que diga estas palabras puede controlar la billetera. No hagas capturas de pantalla, ni los copie ni los envíe.",
   "addressCopied": "{name} dirección copiada",
-  "copyAddress": "Copiar dirección"
+  "copyAddress": "Copiar dirección",
+  "copyMnemonic": "Copiar mnemónico",
+  "copyMnemonicTitle": "¿Copiar este mnemotécnico?",
+  "copyMnemonicWarning": "Otras aplicaciones pueden leer el portapapeles y puede conservar su contenido. Continúe solo si comprende el riesgo y lo eliminará inmediatamente después.",
+  "cancel": "Cancelar",
+  "confirmCopy": "Copiar de todos modos",
+  "mnemonicCopied": "Mnemónico copiado. Limpia tu portapapeles después de su uso."
 }

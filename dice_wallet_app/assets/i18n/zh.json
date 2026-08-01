@@ -53,6 +53,12 @@
   "backupReminder": "数据尚未保存，请妥善完成离线备份",
   "sensitiveHidden": "敏感内容已隐藏",
   "secretWarning": "任何人获得这些单词都能控制钱包。请勿截图、复制或发送。",
+  "copyMnemonic": "复制助记词",
+  "copyMnemonicTitle": "确认复制助记词？",
+  "copyMnemonicWarning": "剪贴板内容可能被其他 App 读取或保留。请仅在了解风险并准备在使用后立即清空剪贴板时继续。",
+  "cancel": "取消",
+  "confirmCopy": "仍然复制",
+  "mnemonicCopied": "助记词已复制，请在使用后立即清空剪贴板。",
   "addressCopied": "{name} 地址已复制",
   "copyAddress": "复制地址"
 }

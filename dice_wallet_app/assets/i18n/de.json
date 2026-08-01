@@ -54,5 +54,11 @@
   "sensitiveHidden": "Sensible Inhalte werden ausgeblendet",
   "secretWarning": "Jeder mit diesen Worten kann die Brieftasche kontrollieren. Machen Sie keine Screenshots, kopieren Sie sie nicht und senden Sie sie nicht.",
   "addressCopied": "{name}-Adresse kopiert",
-  "copyAddress": "Adresse kopieren"
+  "copyAddress": "Adresse kopieren",
+  "copyMnemonic": "Mnemonik kopieren",
+  "copyMnemonicTitle": "Diese Mnemonik kopieren?",
+  "copyMnemonicWarning": "Die Zwischenablage kann von anderen Apps gelesen werden und behält möglicherweise ihren Inhalt. Fahren Sie nur fort, wenn Sie das Risiko verstehen und es sofort danach beseitigen.",
+  "cancel": "Abbrechen",
+  "confirmCopy": "Trotzdem kopieren",
+  "mnemonicCopied": "Mnemonik kopiert. Leeren Sie nach der Verwendung Ihre Zwischenablage."
 }

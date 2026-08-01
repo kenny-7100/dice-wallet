@@ -57,36 +57,6 @@ class HomeScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 28),
                   _SectionLabel(
-                    title: strings.text('secureRandom'),
-                    icon: Icons.shield_outlined,
-                  ),
-                  const SizedBox(height: 10),
-                  _OptionGrid(
-                    options: [
-                      _Option(
-                        strings.text('randomGenerate'),
-                        strings.text('wordCount', {'count': 12}),
-                        strings.text('secureEntropyBits', {'count': 128}),
-                        Icons.auto_awesome_outlined,
-                        () => _open(
-                          context,
-                          const RandomWalletScreen(bitLength: 128),
-                        ),
-                      ),
-                      _Option(
-                        strings.text('randomGenerate'),
-                        strings.text('wordCount', {'count': 24}),
-                        strings.text('secureEntropyBits', {'count': 256}),
-                        Icons.auto_awesome_outlined,
-                        () => _open(
-                          context,
-                          const RandomWalletScreen(bitLength: 256),
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 28),
-                  _SectionLabel(
                     title: strings.text('manualCoinFlip'),
                     icon: Icons.toll_outlined,
                   ),
@@ -111,6 +81,36 @@ class HomeScreen extends StatelessWidget {
                         () => _open(
                           context,
                           const CoinFlipScreen(flipCount: 256),
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 28),
+                  _SectionLabel(
+                    title: strings.text('secureRandom'),
+                    icon: Icons.shield_outlined,
+                  ),
+                  const SizedBox(height: 10),
+                  _OptionGrid(
+                    options: [
+                      _Option(
+                        strings.text('randomGenerate'),
+                        strings.text('wordCount', {'count': 12}),
+                        strings.text('secureEntropyBits', {'count': 128}),
+                        Icons.auto_awesome_outlined,
+                        () => _open(
+                          context,
+                          const RandomWalletScreen(bitLength: 128),
+                        ),
+                      ),
+                      _Option(
+                        strings.text('randomGenerate'),
+                        strings.text('wordCount', {'count': 24}),
+                        strings.text('secureEntropyBits', {'count': 256}),
+                        Icons.auto_awesome_outlined,
+                        () => _open(
+                          context,
+                          const RandomWalletScreen(bitLength: 256),
                         ),
                       ),
                     ],

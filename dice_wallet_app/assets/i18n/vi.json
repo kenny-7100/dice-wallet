@@ -54,5 +54,11 @@
   "sensitiveHidden": "Ẩn nội dung nhạy cảm",
   "secretWarning": "Bất cứ ai có những từ này đều có thể kiểm soát ví. Không chụp màn hình, sao chép hoặc gửi chúng.",
   "addressCopied": "Đã sao chép địa chỉ {name}",
-  "copyAddress": "Sao chép địa chỉ"
+  "copyAddress": "Sao chép địa chỉ",
+  "copyMnemonic": "Sao chép ghi nhớ",
+  "copyMnemonicTitle": "Sao chép bản ghi nhớ này?",
+  "copyMnemonicWarning": "Các ứng dụng khác có thể đọc bảng nhớ tạm và có thể giữ lại nội dung của nó. Chỉ tiếp tục nếu bạn hiểu được rủi ro và sẽ giải quyết nó ngay sau đó.",
+  "cancel": "Hủy bỏ",
+  "confirmCopy": "Vẫn sao chép",
+  "mnemonicCopied": "Đã sao chép ghi nhớ. Xóa clipboard của bạn sau khi sử dụng."
 }

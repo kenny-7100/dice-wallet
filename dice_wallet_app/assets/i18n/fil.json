@@ -54,5 +54,11 @@
   "sensitiveHidden": "Nakatago ang sensitibong nilalaman",
   "secretWarning": "Maaaring kontrolin ng sinumang may mga salitang ito ang pitaka. Huwag i-screenshot, kopyahin, o ipadala ang mga ito.",
   "addressCopied": "Nakopya ang address ng {name}.",
-  "copyAddress": "Kopyahin ang address"
+  "copyAddress": "Kopyahin ang address",
+  "copyMnemonic": "Kopyahin ang mnemonic",
+  "copyMnemonicTitle": "Kopyahin ang mnemonic na ito?",
+  "copyMnemonicWarning": "Ang clipboard ay maaaring basahin ng iba pang mga app at maaaring panatilihin ang mga nilalaman nito. Ipagpatuloy lamang kung naiintindihan mo ang panganib at aalisin ito kaagad pagkatapos.",
+  "cancel": "Kanselahin",
+  "confirmCopy": "Kopyahin pa rin",
+  "mnemonicCopied": "Kinopya ang Mnemonic. I-clear ang iyong clipboard pagkatapos gamitin."
 }

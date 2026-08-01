@@ -4,6 +4,7 @@ import 'package:dice_wallet_app/l10n/app_strings.dart';
 import 'package:dice_wallet_app/l10n/locale_controller.dart';
 import 'package:dice_wallet_app/screens/wallet_result_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -24,6 +25,10 @@ void main() {
     expect(find.text('抛硬币'), findsNWidgets(2));
     expect(find.text('12 词'), findsNWidgets(2));
     expect(find.text('24 词'), findsNWidgets(2));
+    expect(
+      tester.getTopLeft(find.text('手工抛硬币')).dy,
+      lessThan(tester.getTopLeft(find.text('系统安全随机数')).dy),
+    );
 
     await tester.tap(find.text('抛硬币').first);
     await tester.pumpAndSettle();
@@ -112,5 +117,33 @@ void main() {
     expect(find.text('about'), findsOneWidget);
     expect(find.text('放弃'), findsNWidgets(11));
     expect(find.text('关于'), findsOneWidget);
+
+    final clipboardWrites = <Object?>[];
+    TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+        .setMockMethodCallHandler(SystemChannels.platform, (call) async {
+          if (call.method == 'Clipboard.setData') {
+            clipboardWrites.add(call.arguments);
+          }
+          return null;
+        });
+    await tester.ensureVisible(find.text('复制助记词'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('复制助记词'));
+    await tester.pumpAndSettle();
+    expect(find.text('确认复制助记词？'), findsOneWidget);
+    await tester.tap(find.text('取消'));
+    await tester.pumpAndSettle();
+    expect(clipboardWrites, isEmpty);
+
+    await tester.ensureVisible(find.text('复制助记词'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('复制助记词'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('仍然复制'));
+    await tester.pumpAndSettle();
+    expect(clipboardWrites, [
+      {'text': mnemonic},
+    ]);
+    expect(find.text('助记词已复制，请在使用后立即清空剪贴板。'), findsOneWidget);
   });
 }
