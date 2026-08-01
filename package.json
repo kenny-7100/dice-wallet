@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "start": "tsx src/index.ts",
+    "random": "tsx src/random.ts",
     "test": "tsx --test test/**/*.test.ts",
     "typecheck": "tsc --noEmit"
   },
