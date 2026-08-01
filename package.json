@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "tsx src/index.ts",
+    "start": "tsx src/random.ts",
     "random": "tsx src/random.ts",
     "random12": "tsx src/random12.ts",
     "test": "tsx --test test/**/*.test.ts",

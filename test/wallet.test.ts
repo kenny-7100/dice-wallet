@@ -198,10 +198,6 @@ describe("deriveWalletFrom128BitEntropy", () => {
 });
 
 describe("command entry points", () => {
-  it("runs the default entry point", () => {
-    assert.equal(runEntryPoint("src/index.ts"), "hello world\n");
-  });
-
   for (const [file, wordCount] of [
     ["src/random.ts", 24],
     ["src/random12.ts", 12],
