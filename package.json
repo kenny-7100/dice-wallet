@@ -3,11 +3,23 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "tsx src/index.ts"
+    "start": "tsx src/index.ts",
+    "test": "tsx --test test/**/*.test.ts",
+    "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
     "@types/node": "^24.0.0",
     "tsx": "^4.20.0",
     "typescript": "^5.8.0"
+  },
+  "dependencies": {
+    "bip32": "^5.0.1",
+    "bip39": "^3.1.0",
+    "bitcoinjs-lib": "^7.0.1",
+    "bs58": "^6.0.0",
+    "ed25519-hd-key": "^2.0.0",
+    "ethers": "^6.17.0",
+    "tiny-secp256k1": "^2.2.4",
+    "tweetnacl": "^1.0.3"
   }
 }
