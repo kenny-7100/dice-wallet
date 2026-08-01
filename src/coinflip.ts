@@ -12,14 +12,11 @@ async function main(): Promise<void> {
   const bits: string[] = [];
 
   console.log("Flip a coin 256 times. Enter 1 for heads or 2 for tails.\n");
+  stdout.write(`Flip 1/${FLIP_COUNT} (1 = heads, 2 = tails): `);
 
   try {
-    while (bits.length < FLIP_COUNT) {
-      const answer = (
-        await readline.question(
-          `Flip ${bits.length + 1}/${FLIP_COUNT} (1 = heads, 2 = tails): `,
-        )
-      ).trim();
+    for await (const line of readline) {
+      const answer = line.trim();
 
       if (answer === "1") {
         bits.push("0");
@@ -28,9 +25,21 @@ async function main(): Promise<void> {
       } else {
         console.log("Invalid input. Please enter 1 or 2.");
       }
+
+      if (bits.length === FLIP_COUNT) {
+        break;
+      }
+
+      stdout.write(
+        `Flip ${bits.length + 1}/${FLIP_COUNT} (1 = heads, 2 = tails): `,
+      );
     }
   } finally {
     readline.close();
+  }
+
+  if (bits.length !== FLIP_COUNT) {
+    throw new Error(`input ended after ${bits.length} of ${FLIP_COUNT} flips`);
   }
 
   const entropy = Buffer.from(
