@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "start": "tsx src/random.ts",
+    "coinflip": "tsx src/coinflip.ts",
     "random": "tsx src/random.ts",
     "random12": "tsx src/random12.ts",
     "test": "tsx --test test/**/*.test.ts",
