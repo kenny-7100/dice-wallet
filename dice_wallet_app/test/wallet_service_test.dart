@@ -5,6 +5,7 @@ import 'package:dice_wallet_app/core/wallet_service.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
+  TestWidgetsFlutterBinding.ensureInitialized();
   final service = WalletService();
 
   test('derives the Node 24-word zero-entropy wallet vector', () async {
@@ -41,13 +42,37 @@ void main() {
     );
   });
 
-  test('contains all 2048 mnemonic translations', () {
-    expect(englishToSimplifiedChinese.length, 2048);
-    expect(translateMnemonic('abandon ability able about'), '放弃 能力 能够 关于');
-    expect(
-      () => translateMnemonic('abandon unknown-word'),
-      throwsArgumentError,
-    );
+  test('contains 2048 mnemonic meanings for every language', () async {
+    const languages = [
+      'en',
+      'zh',
+      'es',
+      'hi',
+      'pt',
+      'ru',
+      'ja',
+      'ko',
+      'de',
+      'fr',
+      'tr',
+      'vi',
+      'id',
+      'ar',
+      'fa',
+      'uk',
+      'th',
+      'fil',
+      'it',
+      'nl',
+    ];
+    for (final language in languages) {
+      final translations = await MnemonicTranslations.load(language);
+      expect(translations.length, 2048, reason: language);
+      expect(translations.values.every((value) => value.isNotEmpty), isTrue);
+    }
+    final chinese = await MnemonicTranslations.load('zh');
+    expect(chinese['abandon'], '放弃');
+    expect(chinese['about'], '关于');
   });
 
   test('rejects unsupported entropy and coin flip sizes', () async {

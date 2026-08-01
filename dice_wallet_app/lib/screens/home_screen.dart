@@ -1,63 +1,72 @@
 import 'package:flutter/material.dart';
 
+import '../l10n/app_strings.dart';
+import '../l10n/locale_controller.dart';
 import 'coin_flip_screen.dart';
 import 'random_wallet_screen.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+  const HomeScreen({super.key, required this.localeController});
+
+  final LocaleController localeController;
 
   @override
   Widget build(BuildContext context) {
+    final strings = AppStrings.of(context);
     return Scaffold(
       body: SafeArea(
         child: Center(
           child: SingleChildScrollView(
-            padding: const EdgeInsets.fromLTRB(20, 28, 20, 32),
+            padding: const EdgeInsets.fromLTRB(20, 20, 20, 32),
             child: ConstrainedBox(
               constraints: const BoxConstraints(maxWidth: 720),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Row(
+                  Row(
                     children: [
-                      _Logo(),
-                      SizedBox(width: 12),
-                      Text(
-                        'DICE WALLET',
-                        style: TextStyle(
-                          fontWeight: FontWeight.w800,
-                          letterSpacing: 0,
+                      const _Logo(),
+                      const SizedBox(width: 12),
+                      const Expanded(
+                        child: Text(
+                          'DICE WALLET',
+                          style: TextStyle(fontWeight: FontWeight.w800),
                         ),
+                      ),
+                      IconButton(
+                        onPressed: () => _showLanguagePicker(context),
+                        tooltip: strings.text('language'),
+                        icon: const Icon(Icons.language),
                       ),
                     ],
                   ),
-                  const SizedBox(height: 36),
+                  const SizedBox(height: 32),
                   Text(
-                    '离线创建你的钱包',
+                    strings.text('createWallet'),
                     style: Theme.of(context).textTheme.headlineLarge?.copyWith(
                       fontWeight: FontWeight.w800,
                     ),
                   ),
                   const SizedBox(height: 10),
                   Text(
-                    '选择熵源与助记词长度。生成、派生和展示全程仅在本机内存中完成。',
+                    strings.text('homeDescription'),
                     style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                       color: const Color(0xFF59635E),
                       height: 1.55,
                     ),
                   ),
                   const SizedBox(height: 28),
-                  const _SectionLabel(
-                    title: '系统安全随机数',
+                  _SectionLabel(
+                    title: strings.text('secureRandom'),
                     icon: Icons.shield_outlined,
                   ),
                   const SizedBox(height: 10),
                   _OptionGrid(
                     options: [
                       _Option(
-                        '随机生成',
-                        '12 词',
-                        '128 位系统安全熵',
+                        strings.text('randomGenerate'),
+                        strings.text('wordCount', {'count': 12}),
+                        strings.text('secureEntropyBits', {'count': 128}),
                         Icons.auto_awesome_outlined,
                         () => _open(
                           context,
@@ -65,9 +74,9 @@ class HomeScreen extends StatelessWidget {
                         ),
                       ),
                       _Option(
-                        '随机生成',
-                        '24 词',
-                        '256 位系统安全熵',
+                        strings.text('randomGenerate'),
+                        strings.text('wordCount', {'count': 24}),
+                        strings.text('secureEntropyBits', {'count': 256}),
                         Icons.auto_awesome_outlined,
                         () => _open(
                           context,
@@ -77,17 +86,17 @@ class HomeScreen extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(height: 28),
-                  const _SectionLabel(
-                    title: '手工抛硬币',
+                  _SectionLabel(
+                    title: strings.text('manualCoinFlip'),
                     icon: Icons.toll_outlined,
                   ),
                   const SizedBox(height: 10),
                   _OptionGrid(
                     options: [
                       _Option(
-                        '抛硬币',
-                        '12 词',
-                        '记录 128 次结果',
+                        strings.text('coinFlip'),
+                        strings.text('wordCount', {'count': 12}),
+                        strings.text('recordResults', {'count': 128}),
                         Icons.toll_outlined,
                         () => _open(
                           context,
@@ -95,9 +104,9 @@ class HomeScreen extends StatelessWidget {
                         ),
                       ),
                       _Option(
-                        '抛硬币',
-                        '24 词',
-                        '记录 256 次结果',
+                        strings.text('coinFlip'),
+                        strings.text('wordCount', {'count': 24}),
+                        strings.text('recordResults', {'count': 256}),
                         Icons.toll_outlined,
                         () => _open(
                           context,
@@ -107,7 +116,7 @@ class HomeScreen extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(height: 24),
-                  const _PrivacyNote(),
+                  _PrivacyNote(text: strings.text('privacyNote')),
                 ],
               ),
             ),
@@ -119,6 +128,74 @@ class HomeScreen extends StatelessWidget {
 
   void _open(BuildContext context, Widget screen) =>
       Navigator.of(context).push(MaterialPageRoute(builder: (_) => screen));
+
+  Future<void> _showLanguagePicker(BuildContext context) async {
+    final strings = AppStrings.of(context);
+    await showModalBottomSheet<void>(
+      context: context,
+      isScrollControlled: true,
+      showDragHandle: true,
+      builder: (sheetContext) => SafeArea(
+        child: ConstrainedBox(
+          constraints: BoxConstraints(
+            maxHeight: MediaQuery.sizeOf(sheetContext).height * 0.78,
+          ),
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.fromLTRB(20, 0, 20, 12),
+                child: Column(
+                  children: [
+                    Text(
+                      strings.text('language'),
+                      style: Theme.of(sheetContext).textTheme.titleLarge
+                          ?.copyWith(fontWeight: FontWeight.w800),
+                    ),
+                    const SizedBox(height: 5),
+                    Text(
+                      strings.text('languageDescription'),
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(color: Color(0xFF68716D)),
+                    ),
+                  ],
+                ),
+              ),
+              const Divider(height: 1),
+              Expanded(
+                child: ListView(
+                  children: [
+                    ListTile(
+                      title: Text(strings.text('systemDefault')),
+                      leading: const Icon(Icons.phone_iphone),
+                      trailing: localeController.locale == null
+                          ? const Icon(Icons.check, color: Color(0xFF176B4D))
+                          : null,
+                      onTap: () async {
+                        await localeController.select(null);
+                        if (sheetContext.mounted) Navigator.pop(sheetContext);
+                      },
+                    ),
+                    ...supportedLanguageCodes.map(
+                      (code) => ListTile(
+                        title: Text(languageNames[code]!),
+                        trailing: localeController.locale?.languageCode == code
+                            ? const Icon(Icons.check, color: Color(0xFF176B4D))
+                            : null,
+                        onTap: () async {
+                          await localeController.select(Locale(code));
+                          if (sheetContext.mounted) Navigator.pop(sheetContext);
+                        },
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
 }
 
 class _Logo extends StatelessWidget {
@@ -144,9 +221,11 @@ class _SectionLabel extends StatelessWidget {
     children: [
       Icon(icon, size: 19, color: const Color(0xFF176B4D)),
       const SizedBox(width: 8),
-      Text(
-        title,
-        style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 16),
+      Expanded(
+        child: Text(
+          title,
+          style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 16),
+        ),
       ),
     ],
   );
@@ -167,19 +246,14 @@ class _OptionGrid extends StatelessWidget {
   @override
   Widget build(BuildContext context) => LayoutBuilder(
     builder: (context, constraints) {
-      final width = constraints.maxWidth >= 560
+      final width = constraints.maxWidth >= 600
           ? (constraints.maxWidth - 12) / 2
           : constraints.maxWidth;
       return Wrap(
         spacing: 12,
         runSpacing: 12,
         children: options
-            .map(
-              (item) => SizedBox(
-                width: width,
-                child: _OptionCard(option: item),
-              ),
-            )
+            .map((item) => SizedBox(width: width, child: _OptionCard(item)))
             .toList(),
       );
     },
@@ -187,7 +261,7 @@ class _OptionGrid extends StatelessWidget {
 }
 
 class _OptionCard extends StatelessWidget {
-  const _OptionCard({required this.option});
+  const _OptionCard(this.option);
   final _Option option;
   @override
   Widget build(BuildContext context) => Card(
@@ -212,7 +286,9 @@ class _OptionCard extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Row(
+                  Wrap(
+                    spacing: 8,
+                    runSpacing: 2,
                     children: [
                       Text(
                         option.title,
@@ -221,7 +297,6 @@ class _OptionCard extends StatelessWidget {
                           fontSize: 16,
                         ),
                       ),
-                      const SizedBox(width: 8),
                       Text(
                         option.badge,
                         style: const TextStyle(
@@ -248,17 +323,18 @@ class _OptionCard extends StatelessWidget {
 }
 
 class _PrivacyNote extends StatelessWidget {
-  const _PrivacyNote();
+  const _PrivacyNote({required this.text});
+  final String text;
   @override
-  Widget build(BuildContext context) => const Row(
+  Widget build(BuildContext context) => Row(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
-      Icon(Icons.lock_outline, size: 18, color: Color(0xFF68716D)),
-      SizedBox(width: 9),
+      const Icon(Icons.lock_outline, size: 18, color: Color(0xFF68716D)),
+      const SizedBox(width: 9),
       Expanded(
         child: Text(
-          '不联网、不保存、不上传。退出结果页后，页面将释放钱包数据引用。',
-          style: TextStyle(color: Color(0xFF68716D), height: 1.5),
+          text,
+          style: const TextStyle(color: Color(0xFF68716D), height: 1.5),
         ),
       ),
     ],

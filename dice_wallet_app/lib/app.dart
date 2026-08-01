@@ -1,9 +1,42 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
+import 'l10n/app_strings.dart';
+import 'l10n/locale_controller.dart';
 import 'screens/home_screen.dart';
 
-class DiceWalletApp extends StatelessWidget {
-  const DiceWalletApp({super.key});
+class DiceWalletApp extends StatefulWidget {
+  const DiceWalletApp({super.key, required this.localeController});
+
+  final LocaleController localeController;
+
+  @override
+  State<DiceWalletApp> createState() => _DiceWalletAppState();
+}
+
+class _DiceWalletAppState extends State<DiceWalletApp> {
+  @override
+  void initState() {
+    super.initState();
+    widget.localeController.addListener(_localeChanged);
+  }
+
+  @override
+  void didUpdateWidget(DiceWalletApp oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.localeController != widget.localeController) {
+      oldWidget.localeController.removeListener(_localeChanged);
+      widget.localeController.addListener(_localeChanged);
+    }
+  }
+
+  @override
+  void dispose() {
+    widget.localeController.removeListener(_localeChanged);
+    super.dispose();
+  }
+
+  void _localeChanged() => setState(() {});
 
   @override
   Widget build(BuildContext context) {
@@ -13,6 +46,14 @@ class DiceWalletApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Dice Wallet',
+      locale: widget.localeController.locale,
+      supportedLocales: supportedLocales,
+      localizationsDelegates: const [
+        AppStrings.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
       theme: ThemeData(
         useMaterial3: true,
         scaffoldBackgroundColor: paper,
@@ -54,7 +95,7 @@ class DiceWalletApp extends StatelessWidget {
           ),
         ),
       ),
-      home: const HomeScreen(),
+      home: HomeScreen(localeController: widget.localeController),
     );
   }
 }
