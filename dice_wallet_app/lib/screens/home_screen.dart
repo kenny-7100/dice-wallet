@@ -201,14 +201,15 @@ class HomeScreen extends StatelessWidget {
 class _Logo extends StatelessWidget {
   const _Logo();
   @override
-  Widget build(BuildContext context) => Container(
-    width: 42,
-    height: 42,
-    decoration: BoxDecoration(
-      color: const Color(0xFF17201C),
-      borderRadius: BorderRadius.circular(6),
+  Widget build(BuildContext context) => ClipRRect(
+    borderRadius: BorderRadius.circular(8),
+    child: Image.asset(
+      'assets/brand/dice-wallet-icon.png',
+      width: 42,
+      height: 42,
+      fit: BoxFit.cover,
+      semanticLabel: 'Dice Wallet',
     ),
-    child: const Icon(Icons.casino_outlined, color: Color(0xFFF6C453)),
   );
 }
 
