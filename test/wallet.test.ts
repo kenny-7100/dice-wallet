@@ -7,6 +7,7 @@ import {
   BITCOIN_TAPROOT_PATH,
   ETHEREUM_PATH,
   SOLANA_PATH,
+  TRON_PATH,
   deriveWalletFrom128BitEntropy,
   deriveWalletFromEntropy,
 } from "../src/wallet.js";
@@ -45,6 +46,7 @@ describe("deriveWalletFromEntropy", () => {
     assert.equal(wallet.bitcoin.taproot.path, BITCOIN_TAPROOT_PATH);
     assert.equal(wallet.ethereum.path, ETHEREUM_PATH);
     assert.equal(wallet.solana.path, SOLANA_PATH);
+    assert.equal(wallet.tron.path, TRON_PATH);
     assert.equal(
       wallet.bitcoin.nativeSegwit.address,
       "bc1qzmtrqsfuaf6l6kkcsseumq26ukaphfj9skkug6",
@@ -61,6 +63,7 @@ describe("deriveWalletFromEntropy", () => {
       wallet.solana.address,
       "3Cy3YNTFywCmxoxt8n7UH6hg6dLo5uACowX3CFceaSnx",
     );
+    assert.match(wallet.tron.address, /^T[1-9A-HJ-NP-Za-km-z]{33}$/);
   });
 
   it("treats hexadecimal input case-insensitively", () => {
@@ -92,7 +95,7 @@ describe("deriveWalletFromEntropy", () => {
 });
 
 describe("deriveWalletFrom128BitEntropy", () => {
-  it("derives a 12-word BIP-39 mnemonic and all three addresses", () => {
+  it("derives a 12-word BIP-39 mnemonic and all configured addresses", () => {
     const wallet = deriveWalletFrom128BitEntropy(ZERO_128_BIT_ENTROPY);
 
     assert.equal(wallet.mnemonic, `${"abandon ".repeat(11)}about`);
@@ -101,6 +104,7 @@ describe("deriveWalletFrom128BitEntropy", () => {
     assert.match(wallet.bitcoin.taproot.address, /^bc1p[ac-hj-np-z02-9]{58}$/);
     assert.match(wallet.ethereum.address, /^0x[0-9A-Fa-f]{40}$/);
     assert.match(wallet.solana.address, /^[1-9A-HJ-NP-Za-km-z]{32,44}$/);
+    assert.match(wallet.tron.address, /^T[1-9A-HJ-NP-Za-km-z]{33}$/);
   });
 
   it("rejects values that are not exactly 128-bit prefixed hex", () => {

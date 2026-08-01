@@ -19,3 +19,4 @@ console.log(
 );
 console.log(`💎 Ethereum address:\n${indent}${wallet.ethereum.address}\n`);
 console.log(`🚀 Solana address:\n${indent}${wallet.solana.address}\n`);
+console.log(`🚚 TRON address:\n${indent}${wallet.tron.address}\n`);
