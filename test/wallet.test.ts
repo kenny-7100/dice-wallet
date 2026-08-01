@@ -279,6 +279,27 @@ describe("command entry points", () => {
     });
   }
 
+  for (const [name, entropyHex] of [
+    ["all heads", ZERO_128_BIT_ENTROPY],
+    ["all tails", `0x${"ff".repeat(16)}`],
+    ["alternating heads and tails", `0x${"55".repeat(16)}`],
+    ["alternating tails and heads", `0x${"aa".repeat(16)}`],
+    ...["fixture-1", "fixture-2", "fixture-3"].map((seed) => [
+      `deterministic random sequence ${seed}`,
+      `0x${createHash("sha256").update(seed).digest("hex").slice(0, 32)}`,
+    ]),
+  ] as const) {
+    it(`generates the expected 12-word wallet for ${name}`, () => {
+      const output = runEntryPoint(
+        "src/coinflip12.ts",
+        coinFlipsFromEntropy(entropyHex),
+      );
+
+      assert.match(output, /Flip 128\/128 \(1 = heads, 2 = tails\):/);
+      assertWalletOutput(output, deriveWalletFrom128BitEntropy(entropyHex));
+    });
+  }
+
   it("retries invalid coin flip input without advancing the count", () => {
     const invalidInputs = ["", "0", "3", "heads", "tails"];
     const output = runEntryPoint(
@@ -291,6 +312,20 @@ describe("command entry points", () => {
       invalidInputs.length,
     );
     assertWalletOutput(output, deriveWalletFromEntropy(ZERO_ENTROPY));
+  });
+
+  it("retries invalid 12-word coin flip input without advancing the count", () => {
+    const invalidInputs = ["", "0", "3", "heads", "tails"];
+    const output = runEntryPoint(
+      "src/coinflip12.ts",
+      [...invalidInputs, " 1 ", ...Array<string>(127).fill("1")].join("\n"),
+    );
+
+    assert.equal(
+      output.match(/Invalid input\. Please enter 1 or 2\./g)?.length,
+      invalidInputs.length,
+    );
+    assertWalletOutput(output, deriveWalletFrom128BitEntropy(ZERO_128_BIT_ENTROPY));
   });
 
   it("fails clearly when input ends before 256 valid flips", () => {
@@ -306,6 +341,22 @@ describe("command entry points", () => {
 
     assert.equal(result.status, 1);
     assert.match(result.stderr, /input ended after 128 of 256 flips/);
+    assert.doesNotMatch(result.stdout, /Mnemonic:/);
+  });
+
+  it("fails clearly when input ends before 128 valid flips", () => {
+    const result = spawnSync(
+      process.execPath,
+      ["--import", "tsx", "src/coinflip12.ts"],
+      {
+        cwd: process.cwd(),
+        encoding: "utf8",
+        input: Array<string>(64).fill("1").join("\n"),
+      },
+    );
+
+    assert.equal(result.status, 1);
+    assert.match(result.stderr, /input ended after 64 of 128 flips/);
     assert.doesNotMatch(result.stdout, /Mnemonic:/);
   });
 });

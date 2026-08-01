@@ -1,10 +1,11 @@
 {
   "name": "dice-wallet",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "private": true,
   "scripts": {
     "start": "tsx src/random.ts",
     "coinflip": "tsx src/coinflip.ts",
+    "coinflip12": "tsx src/coinflip12.ts",
     "random": "tsx src/random.ts",
     "random12": "tsx src/random12.ts",
     "test": "tsx --test test/**/*.test.ts",
