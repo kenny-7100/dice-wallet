@@ -54,10 +54,5 @@
   "sensitiveHidden": "機密性の高いコンテンツは非表示になります",
   "secretWarning": "これらの言葉を持っている人は誰でもウォレットをコントロールできます。スクリーンショットを撮ったり、コピーしたり、送信したりしないでください。",
   "addressCopied": "{name} のアドレスがコピーされました",
-  "copyAddress": "アドレスをコピーする",
-  "bitcoinNativeSegwit": "ビットコインネイティブ SegWit",
-  "bitcoinTaproot": "ビットコインの主根",
-  "ethereum": "イーサリアム",
-  "solana": "ソラナ",
-  "tron": "トロン"
+  "copyAddress": "アドレスをコピーする"
 }

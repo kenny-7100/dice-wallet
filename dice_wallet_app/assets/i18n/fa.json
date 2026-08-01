@@ -54,10 +54,5 @@
   "sensitiveHidden": "محتوای حساس پنهان شد",
   "secretWarning": "هر کسی با این کلمات می تواند کیف پول را کنترل کند. از آنها اسکرین شات، کپی یا ارسال نکنید.",
   "addressCopied": "آدرس {name} کپی شد",
-  "copyAddress": "آدرس را کپی کنید",
-  "bitcoinNativeSegwit": "بیت کوین بومی SegWit",
-  "bitcoinTaproot": "بیت کوین Taproot",
-  "ethereum": "اتریوم",
-  "solana": "سولانا",
-  "tron": "TRON"
+  "copyAddress": "آدرس را کپی کنید"
 }

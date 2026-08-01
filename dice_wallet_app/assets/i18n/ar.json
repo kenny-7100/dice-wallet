@@ -54,10 +54,5 @@
   "sensitiveHidden": "محتوى حساس مخفي",
   "secretWarning": "يمكن لأي شخص لديه هذه الكلمات التحكم في المحفظة. لا تقم بالتقاط لقطة شاشة أو نسخها أو إرسالها.",
   "addressCopied": "تم نسخ عنوان {name}.",
-  "copyAddress": "انسخ العنوان",
-  "bitcoinNativeSegwit": "Bitcoin الأصلي SegWit",
-  "bitcoinTaproot": "بيتكوين تابوت",
-  "ethereum": "ايثريوم",
-  "solana": "سولانا",
-  "tron": "ترون"
+  "copyAddress": "انسخ العنوان"
 }

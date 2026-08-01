@@ -31,7 +31,6 @@ const uiEnglish = {
   clearAndHome: 'Clear and return home', derivationComplete: 'Derivation complete', backupReminder: 'Nothing has been saved. Complete an offline backup now.',
   sensitiveHidden: 'Sensitive content hidden', secretWarning: 'Anyone with these words can control the wallet. Do not screenshot, copy, or send them.',
   addressCopied: '{name} address copied', copyAddress: 'Copy address',
-  bitcoinNativeSegwit: 'Bitcoin Native SegWit', bitcoinTaproot: 'Bitcoin Taproot', ethereum: 'Ethereum', solana: 'Solana', tron: 'TRON',
 };
 
 function restorePlaceholders(source, translated) {

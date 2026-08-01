@@ -279,9 +279,7 @@ class _AddressCard extends StatelessWidget {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(
-            AppStrings.of(context).text('addressCopied', {
-              'name': _localizedAddressName(context, item.name),
-            }),
+            AppStrings.of(context).text('addressCopied', {'name': item.name}),
           ),
           duration: const Duration(seconds: 2),
         ),
@@ -300,7 +298,7 @@ class _AddressCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  _localizedAddressName(context, item.name),
+                  item.name,
                   style: const TextStyle(fontWeight: FontWeight.w800),
                 ),
                 const SizedBox(height: 3),
@@ -334,15 +332,4 @@ class _AddressCard extends StatelessWidget {
       ),
     ),
   );
-
-  String _localizedAddressName(BuildContext context, String name) {
-    const keys = {
-      'Bitcoin Native SegWit': 'bitcoinNativeSegwit',
-      'Bitcoin Taproot': 'bitcoinTaproot',
-      'Ethereum': 'ethereum',
-      'Solana': 'solana',
-      'TRON': 'tron',
-    };
-    return AppStrings.of(context).text(keys[name] ?? name);
-  }
 }

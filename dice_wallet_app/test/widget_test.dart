@@ -63,8 +63,33 @@ void main() {
         'abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon about';
     const wallet = DerivedWallet(
       mnemonic: mnemonic,
-      addresses: [WalletAddress('Ethereum', ethereumPath, '0x1234')],
+      addresses: [
+        WalletAddress(
+          'Bitcoin Native SegWit',
+          bitcoinNativeSegwitPath,
+          'bc1qexample',
+        ),
+        WalletAddress('Ethereum', ethereumPath, '0x1234'),
+      ],
     );
+    await tester.pumpWidget(
+      const MaterialApp(
+        locale: Locale('ko'),
+        supportedLocales: supportedLocales,
+        localizationsDelegates: [
+          AppStrings.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+        ],
+        home: WalletResultScreen(wallet: wallet),
+      ),
+    );
+    await tester.pumpAndSettle();
+    expect(find.text('Bitcoin Native SegWit'), findsOneWidget);
+    expect(find.text('Ethereum'), findsOneWidget);
+    expect(find.text('비트코인 네이티브 SegWit'), findsNothing);
+
     await tester.pumpWidget(
       const MaterialApp(
         locale: Locale('zh'),

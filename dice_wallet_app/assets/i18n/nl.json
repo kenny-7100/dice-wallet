@@ -54,10 +54,5 @@
   "sensitiveHidden": "Gevoelige inhoud verborgen",
   "secretWarning": "Iedereen met deze woorden kan de portemonnee beheren. Maak geen screenshot, kopieer of verzend ze niet.",
   "addressCopied": "{name} adres gekopieerd",
-  "copyAddress": "Kopieer adres",
-  "bitcoinNativeSegwit": "Bitcoin Native SegWit",
-  "bitcoinTaproot": "Bitcoin-wortel",
-  "ethereum": "Ethereum",
-  "solana": "Solana",
-  "tron": "TRON"
+  "copyAddress": "Kopieer adres"
 }

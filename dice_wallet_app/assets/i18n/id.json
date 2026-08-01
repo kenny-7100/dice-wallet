@@ -54,10 +54,5 @@
   "sensitiveHidden": "Konten sensitif disembunyikan",
   "secretWarning": "Siapa pun yang memiliki kata-kata ini dapat mengontrol dompet. Jangan mengambil tangkapan layar, menyalin, atau mengirimkannya.",
   "addressCopied": "alamat {name} disalin",
-  "copyAddress": "Salin alamat",
-  "bitcoinNativeSegwit": "SegWit Asli Bitcoin",
-  "bitcoinTaproot": "Akar Tunggang Bitcoin",
-  "ethereum": "Ethereum",
-  "solana": "Solana",
-  "tron": "TRON"
+  "copyAddress": "Salin alamat"
 }

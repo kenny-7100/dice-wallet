@@ -54,10 +54,5 @@
   "sensitiveHidden": "Ẩn nội dung nhạy cảm",
   "secretWarning": "Bất cứ ai có những từ này đều có thể kiểm soát ví. Không chụp màn hình, sao chép hoặc gửi chúng.",
   "addressCopied": "Đã sao chép địa chỉ {name}",
-  "copyAddress": "Sao chép địa chỉ",
-  "bitcoinNativeSegwit": "SegWit gốc Bitcoin",
-  "bitcoinTaproot": "Rễ Bitcoin",
-  "ethereum": "Ethereum",
-  "solana": "Solana",
-  "tron": "TRON"
+  "copyAddress": "Sao chép địa chỉ"
 }

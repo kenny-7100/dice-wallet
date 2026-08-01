@@ -54,10 +54,5 @@
   "sensitiveHidden": "敏感内容已隐藏",
   "secretWarning": "任何人获得这些单词都能控制钱包。请勿截图、复制或发送。",
   "addressCopied": "{name} 地址已复制",
-  "copyAddress": "复制地址",
-  "bitcoinNativeSegwit": "Bitcoin Native SegWit",
-  "bitcoinTaproot": "Bitcoin Taproot",
-  "ethereum": "Ethereum",
-  "solana": "Solana",
-  "tron": "TRON"
+  "copyAddress": "复制地址"
 }

@@ -54,10 +54,5 @@
   "sensitiveHidden": "เนื้อหาที่ละเอียดอ่อนซ่อนอยู่",
   "secretWarning": "ใครก็ตามที่มีคำเหล่านี้สามารถควบคุมกระเป๋าเงินได้ ห้ามจับภาพหน้าจอ คัดลอก หรือส่ง",
   "addressCopied": "คัดลอกที่อยู่ {name} แล้ว",
-  "copyAddress": "คัดลอกที่อยู่",
-  "bitcoinNativeSegwit": "Bitcoin พื้นเมือง SegWit",
-  "bitcoinTaproot": "Bitcoin Taproot",
-  "ethereum": "อีเธอเรียม",
-  "solana": "โซลานา",
-  "tron": "ตรอน"
+  "copyAddress": "คัดลอกที่อยู่"
 }

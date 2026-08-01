@@ -54,10 +54,5 @@
   "sensitiveHidden": "Nakatago ang sensitibong nilalaman",
   "secretWarning": "Maaaring kontrolin ng sinumang may mga salitang ito ang pitaka. Huwag i-screenshot, kopyahin, o ipadala ang mga ito.",
   "addressCopied": "Nakopya ang address ng {name}.",
-  "copyAddress": "Kopyahin ang address",
-  "bitcoinNativeSegwit": "Bitcoin Native SegWit",
-  "bitcoinTaproot": "Bitcoin Taproot",
-  "ethereum": "Ethereum",
-  "solana": "Solana",
-  "tron": "TRON"
+  "copyAddress": "Kopyahin ang address"
 }

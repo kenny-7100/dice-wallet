@@ -54,10 +54,5 @@
   "sensitiveHidden": "Contenido sensible oculto",
   "secretWarning": "Cualquiera que diga estas palabras puede controlar la billetera. No hagas capturas de pantalla, ni los copie ni los envíe.",
   "addressCopied": "{name} dirección copiada",
-  "copyAddress": "Copiar dirección",
-  "bitcoinNativeSegwit": "SegWit nativo de Bitcoin",
-  "bitcoinTaproot": "Raíz principal de Bitcoin",
-  "ethereum": "Etereum",
-  "solana": "solana",
-  "tron": "TRON"
+  "copyAddress": "Copiar dirección"
 }

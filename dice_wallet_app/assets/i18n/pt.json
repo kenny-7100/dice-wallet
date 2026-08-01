@@ -54,10 +54,5 @@
   "sensitiveHidden": "Conteúdo confidencial oculto",
   "secretWarning": "Qualquer pessoa com estas palavras pode controlar a carteira. Não faça capturas de tela, copie ou envie-os.",
   "addressCopied": "endereço {name} copiado",
-  "copyAddress": "Copiar endereço",
-  "bitcoinNativeSegwit": "Bitcoin Nativo SegWit",
-  "bitcoinTaproot": "Raiz principal do Bitcoin",
-  "ethereum": "Ethereum",
-  "solana": "Solana",
-  "tron": "TRON"
+  "copyAddress": "Copiar endereço"
 }

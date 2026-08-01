@@ -54,10 +54,5 @@
   "sensitiveHidden": "Делікатний вміст приховано",
   "secretWarning": "Будь-хто з цими словами може контролювати гаманець. Не робіть знімки екрана, не копіюйте та не надсилайте їх.",
   "addressCopied": "Адресу {name} скопійовано",
-  "copyAddress": "Скопіюйте адресу",
-  "bitcoinNativeSegwit": "Bitcoin Native SegWit",
-  "bitcoinTaproot": "Корінь біткойна",
-  "ethereum": "Ethereum",
-  "solana": "Солана",
-  "tron": "ТРОН"
+  "copyAddress": "Скопіюйте адресу"
 }

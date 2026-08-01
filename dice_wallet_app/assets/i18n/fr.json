@@ -54,10 +54,5 @@
   "sensitiveHidden": "Contenu sensible masqué",
   "secretWarning": "Toute personne possédant ces mots peut contrôler le portefeuille. Ne les capturez pas, ne les copiez pas et ne les envoyez pas.",
   "addressCopied": "Adresse de {name} copiée",
-  "copyAddress": "Copier l'adresse",
-  "bitcoinNativeSegwit": "SegWit natif Bitcoin",
-  "bitcoinTaproot": "Racine pivotante Bitcoin",
-  "ethereum": "Éthereum",
-  "solana": "Solana",
-  "tron": "TRON"
+  "copyAddress": "Copier l'adresse"
 }

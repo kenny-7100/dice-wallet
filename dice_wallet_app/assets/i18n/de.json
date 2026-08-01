@@ -54,10 +54,5 @@
   "sensitiveHidden": "Sensible Inhalte werden ausgeblendet",
   "secretWarning": "Jeder mit diesen Worten kann die Brieftasche kontrollieren. Machen Sie keine Screenshots, kopieren Sie sie nicht und senden Sie sie nicht.",
   "addressCopied": "{name}-Adresse kopiert",
-  "copyAddress": "Adresse kopieren",
-  "bitcoinNativeSegwit": "Bitcoin Native SegWit",
-  "bitcoinTaproot": "Bitcoin Taproot",
-  "ethereum": "Ethereum",
-  "solana": "Solana",
-  "tron": "TRON"
+  "copyAddress": "Adresse kopieren"
 }

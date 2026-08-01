@@ -54,10 +54,5 @@
   "sensitiveHidden": "민감한 콘텐츠가 숨겨져 있습니다.",
   "secretWarning": "이 단어를 가진 사람은 누구나 지갑을 통제할 수 있습니다. 스크린샷을 찍거나 복사하거나 보내지 마세요.",
   "addressCopied": "{name} 주소가 복사되었습니다",
-  "copyAddress": "주소 복사",
-  "bitcoinNativeSegwit": "비트코인 네이티브 SegWit",
-  "bitcoinTaproot": "비트코인 탭루트",
-  "ethereum": "이더리움",
-  "solana": "솔라나",
-  "tron": "트론"
+  "copyAddress": "주소 복사"
 }

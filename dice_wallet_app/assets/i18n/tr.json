@@ -54,10 +54,5 @@
   "sensitiveHidden": "Hassas içerik gizlendi",
   "secretWarning": "Bu kelimelere sahip olan herkes cüzdanı kontrol edebilir. Ekran görüntüsünü almayın, kopyalamayın veya göndermeyin.",
   "addressCopied": "{name} adresi kopyalandı",
-  "copyAddress": "Adresi kopyala",
-  "bitcoinNativeSegwit": "Bitcoin Yerel SegWit",
-  "bitcoinTaproot": "Bitcoin Temel Kökü",
-  "ethereum": "Ethereum",
-  "solana": "Solana",
-  "tron": "TRON"
+  "copyAddress": "Adresi kopyala"
 }

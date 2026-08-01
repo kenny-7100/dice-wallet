@@ -54,10 +54,5 @@
   "sensitiveHidden": "Sensitive content hidden",
   "secretWarning": "Anyone with these words can control the wallet. Do not screenshot, copy, or send them.",
   "addressCopied": "{name} address copied",
-  "copyAddress": "Copy address",
-  "bitcoinNativeSegwit": "Bitcoin Native SegWit",
-  "bitcoinTaproot": "Bitcoin Taproot",
-  "ethereum": "Ethereum",
-  "solana": "Solana",
-  "tron": "TRON"
+  "copyAddress": "Copy address"
 }
