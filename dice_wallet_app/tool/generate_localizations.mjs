@@ -10,7 +10,7 @@ const locales = {
 };
 
 const uiEnglish = {
-  appName: 'Dice Wallet', createWallet: 'Create your wallet offline',
+  appName: 'TossKey', createWallet: 'Create your wallet offline',
   homeDescription: 'Choose an entropy source and mnemonic length. Generation, derivation, and display happen only in memory on this device.',
   secureRandom: 'Secure system randomness', manualCoinFlip: 'Manual coin flips', randomGenerate: 'Random',
   wordCount: '{count} words', secureEntropyBits: '{count}-bit secure entropy', coinFlip: 'Coin flip',

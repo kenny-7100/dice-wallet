@@ -1,5 +1,5 @@
 {
-  "appName": "Zar Cüzdanı",
+  "appName": "TossKey",
   "createWallet": "Cüzdanınızı çevrimdışı oluşturun",
   "homeDescription": "Bir entropi kaynağı ve anımsatıcı uzunluğu seçin. Oluşturma, türetme ve görüntüleme yalnızca bu cihazın belleğinde gerçekleşir.",
   "secureRandom": "Güvenli sistem rastgeleliği",

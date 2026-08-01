@@ -1,5 +1,5 @@
 {
-  "appName": "Würfel-Geldbörse",
+  "appName": "TossKey",
   "createWallet": "Erstellen Sie Ihr Wallet offline",
   "homeDescription": "Wählen Sie eine Entropiequelle und eine mnemonische Länge. Generierung, Ableitung und Anzeige erfolgen nur im Speicher dieses Geräts.",
   "secureRandom": "Sichere Systemzufälligkeit",

@@ -1,5 +1,5 @@
 {
-  "appName": "Carteira de dados",
+  "appName": "TossKey",
   "createWallet": "Crie sua carteira off-line",
   "homeDescription": "Escolha uma fonte de entropia e comprimento mnemônico. A geração, derivação e exibição acontecem apenas na memória deste dispositivo.",
   "secureRandom": "Aleatoriedade segura do sistema",

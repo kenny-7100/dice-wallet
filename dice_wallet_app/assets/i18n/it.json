@@ -1,5 +1,5 @@
 {
-  "appName": "Portafoglio di dadi",
+  "appName": "TossKey",
   "createWallet": "Crea il tuo portafoglio offline",
   "homeDescription": "Scegli una fonte di entropia e una lunghezza mnemonica. La generazione, la derivazione e la visualizzazione avvengono solo nella memoria di questo dispositivo.",
   "secureRandom": "Casualità sicura del sistema",

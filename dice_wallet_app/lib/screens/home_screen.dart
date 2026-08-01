@@ -29,7 +29,7 @@ class HomeScreen extends StatelessWidget {
                       const SizedBox(width: 12),
                       const Expanded(
                         child: Text(
-                          'DICE WALLET',
+                          'TOSSKEY',
                           style: TextStyle(fontWeight: FontWeight.w800),
                         ),
                       ),
@@ -208,7 +208,7 @@ class _Logo extends StatelessWidget {
       width: 42,
       height: 42,
       fit: BoxFit.cover,
-      semanticLabel: 'Dice Wallet',
+      semanticLabel: 'TossKey',
     ),
   );
 }

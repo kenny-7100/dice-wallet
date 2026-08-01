@@ -1,5 +1,5 @@
 {
-  "appName": "Dice Wallet",
+  "appName": "TossKey",
   "createWallet": "离线创建你的钱包",
   "homeDescription": "选择熵源与助记词长度。生成、派生和展示全程仅在本机内存中完成。",
   "secureRandom": "系统安全随机数",

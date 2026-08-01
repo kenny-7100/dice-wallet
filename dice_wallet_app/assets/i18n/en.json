@@ -1,5 +1,5 @@
 {
-  "appName": "Dice Wallet",
+  "appName": "TossKey",
   "createWallet": "Create your wallet offline",
   "homeDescription": "Choose an entropy source and mnemonic length. Generation, derivation, and display happen only in memory on this device.",
   "secureRandom": "Secure system randomness",

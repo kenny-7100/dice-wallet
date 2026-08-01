@@ -1,5 +1,5 @@
 {
-  "appName": "Portefeuille de dés",
+  "appName": "TossKey",
   "createWallet": "Créez votre portefeuille hors ligne",
   "homeDescription": "Choisissez une source d'entropie et une longueur mnémonique. La génération, la dérivation et l'affichage s'effectuent uniquement en mémoire sur cet appareil.",
   "secureRandom": "Le caractère aléatoire du système sécurisé",

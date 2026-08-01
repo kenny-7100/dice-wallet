@@ -1,5 +1,5 @@
 {
-  "appName": "Dobbelstenen portemonnee",
+  "appName": "TossKey",
   "createWallet": "Maak uw portemonnee offline",
   "homeDescription": "Kies een entropiebron en een geheugensteuntje. Het genereren, afleiden en weergeven gebeurt alleen in het geheugen van dit apparaat.",
   "secureRandom": "Veilige systeemwillekeurigheid",

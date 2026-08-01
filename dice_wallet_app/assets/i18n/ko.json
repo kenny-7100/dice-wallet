@@ -1,5 +1,5 @@
 {
-  "appName": "주사위 지갑",
+  "appName": "TossKey",
   "createWallet": "오프라인에서 지갑 만들기",
   "homeDescription": "엔트로피 소스와 니모닉 길이를 선택합니다. 생성, 파생 및 표시는 이 장치의 메모리에서만 발생합니다.",
   "secureRandom": "안전한 시스템 무작위성",

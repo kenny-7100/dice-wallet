@@ -1,5 +1,5 @@
 {
-  "appName": "Dompet Dadu",
+  "appName": "TossKey",
   "createWallet": "Buat dompet Anda secara offline",
   "homeDescription": "Pilih sumber entropi dan panjang mnemonik. Pembuatan, derivasi, dan tampilan hanya terjadi di memori pada perangkat ini.",
   "secureRandom": "Mengamankan keacakan sistem",

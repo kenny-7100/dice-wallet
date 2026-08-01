@@ -54,7 +54,7 @@ void main() {
       await localeController.select(Locale(code));
       await tester.pumpAndSettle();
       expect(tester.takeException(), isNull, reason: 'narrow layout: $code');
-      expect(find.text('DICE WALLET'), findsOneWidget, reason: code);
+      expect(find.text('TOSSKEY'), findsOneWidget, reason: code);
     }
 
     await localeController.select(const Locale('zh'));

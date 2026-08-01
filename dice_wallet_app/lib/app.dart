@@ -45,7 +45,7 @@ class _DiceWalletAppState extends State<DiceWalletApp> {
     const green = Color(0xFF176B4D);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Dice Wallet',
+      title: 'TossKey',
       locale: widget.localeController.locale,
       supportedLocales: supportedLocales,
       localizationsDelegates: const [

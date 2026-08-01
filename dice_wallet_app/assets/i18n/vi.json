@@ -1,5 +1,5 @@
 {
-  "appName": "Ví xúc xắc",
+  "appName": "TossKey",
   "createWallet": "Tạo ví của bạn ngoại tuyến",
   "homeDescription": "Chọn nguồn entropy và độ dài ghi nhớ. Việc tạo, dẫn xuất và hiển thị chỉ diễn ra trong bộ nhớ trên thiết bị này.",
   "secureRandom": "Tính ngẫu nhiên của hệ thống an toàn",

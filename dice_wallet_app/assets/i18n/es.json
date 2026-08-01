@@ -1,5 +1,5 @@
 {
-  "appName": "Cartera de dados",
+  "appName": "TossKey",
   "createWallet": "Crea tu billetera sin conexión",
   "homeDescription": "Elija una fuente de entropía y una longitud mnemotécnica. La generación, derivación y visualización ocurren solo en la memoria de este dispositivo.",
   "secureRandom": "Aleatoriedad del sistema seguro",
