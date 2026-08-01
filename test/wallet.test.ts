@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
 
+import { translateMnemonic } from "../src/mnemonic-translations.js";
 import {
   BITCOIN_NATIVE_SEGWIT_PATH,
   BITCOIN_TAPROOT_PATH,
@@ -12,6 +13,21 @@ import {
 
 const ZERO_ENTROPY = `0x${"00".repeat(32)}`;
 const ZERO_128_BIT_ENTROPY = `0x${"00".repeat(16)}`;
+
+describe("translateMnemonic", () => {
+  it("translates every mnemonic word while preserving its order", () => {
+    assert.equal(
+      translateMnemonic("abandon ability able about"),
+      "放弃 能力 能够 关于",
+    );
+  });
+
+  it("rejects words outside the English BIP-39 word list", () => {
+    assert.throws(() => translateMnemonic("abandon unknown"), {
+      message: "missing mnemonic translation for: unknown",
+    });
+  });
+});
 
 describe("deriveWalletFromEntropy", () => {
   it("derives a 24-word BIP-39 mnemonic from 256-bit entropy", () => {
