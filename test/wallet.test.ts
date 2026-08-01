@@ -5,10 +5,12 @@ import {
   BITCOIN_PATH,
   ETHEREUM_PATH,
   SOLANA_PATH,
+  deriveWalletFrom128BitEntropy,
   deriveWalletFromEntropy,
 } from "../src/wallet.js";
 
 const ZERO_ENTROPY = `0x${"00".repeat(32)}`;
+const ZERO_128_BIT_ENTROPY = `0x${"00".repeat(16)}`;
 
 describe("deriveWalletFromEntropy", () => {
   it("derives a 24-word BIP-39 mnemonic from 256-bit entropy", () => {
@@ -62,6 +64,36 @@ describe("deriveWalletFromEntropy", () => {
         name: "TypeError",
         message:
           "entropyHex must start with 0x and contain exactly 64 hexadecimal characters",
+      });
+    }
+  });
+});
+
+describe("deriveWalletFrom128BitEntropy", () => {
+  it("derives a 12-word BIP-39 mnemonic and all three addresses", () => {
+    const wallet = deriveWalletFrom128BitEntropy(ZERO_128_BIT_ENTROPY);
+
+    assert.equal(wallet.mnemonic, `${"abandon ".repeat(11)}about`);
+    assert.equal(wallet.mnemonic.split(" ").length, 12);
+    assert.match(wallet.bitcoin.address, /^bc1p[ac-hj-np-z02-9]{58}$/);
+    assert.match(wallet.ethereum.address, /^0x[0-9A-Fa-f]{40}$/);
+    assert.match(wallet.solana.address, /^[1-9A-HJ-NP-Za-km-z]{32,44}$/);
+  });
+
+  it("rejects values that are not exactly 128-bit prefixed hex", () => {
+    const invalidValues = [
+      "",
+      "00".repeat(16),
+      `0x${"00".repeat(15)}`,
+      `0x${"00".repeat(17)}`,
+      `0x${"gg".repeat(16)}`,
+    ];
+
+    for (const value of invalidValues) {
+      assert.throws(() => deriveWalletFrom128BitEntropy(value), {
+        name: "TypeError",
+        message:
+          "entropyHex must start with 0x and contain exactly 32 hexadecimal characters",
       });
     }
   });

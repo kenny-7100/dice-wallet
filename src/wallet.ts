@@ -11,7 +11,8 @@ export const BITCOIN_PATH = "m/86'/0'/0'/0/0" as const;
 export const ETHEREUM_PATH = "m/44'/60'/0'/0/0" as const;
 export const SOLANA_PATH = "m/44'/501'/0'/0'" as const;
 
-const ENTROPY_PATTERN = /^0x[0-9a-fA-F]{64}$/;
+const ENTROPY_128_PATTERN = /^0x[0-9a-fA-F]{32}$/;
+const ENTROPY_256_PATTERN = /^0x[0-9a-fA-F]{64}$/;
 const bip32 = BIP32Factory(ecc);
 initEccLib(ecc);
 
@@ -34,13 +35,29 @@ export interface DerivedWallet {
 
 /** Derives public addresses from exactly 256 bits of BIP-39 entropy. */
 export function deriveWalletFromEntropy(entropyHex: string): DerivedWallet {
-  if (!ENTROPY_PATTERN.test(entropyHex)) {
+  if (!ENTROPY_256_PATTERN.test(entropyHex)) {
     throw new TypeError(
       "entropyHex must start with 0x and contain exactly 64 hexadecimal characters",
     );
   }
 
   const mnemonic = bip39.entropyToMnemonic(entropyHex.slice(2).toLowerCase());
+  return deriveWalletFromMnemonic(mnemonic);
+}
+
+/** Derives public addresses from exactly 128 bits of BIP-39 entropy. */
+export function deriveWalletFrom128BitEntropy(entropyHex: string): DerivedWallet {
+  if (!ENTROPY_128_PATTERN.test(entropyHex)) {
+    throw new TypeError(
+      "entropyHex must start with 0x and contain exactly 32 hexadecimal characters",
+    );
+  }
+
+  const mnemonic = bip39.entropyToMnemonic(entropyHex.slice(2).toLowerCase());
+  return deriveWalletFromMnemonic(mnemonic);
+}
+
+function deriveWalletFromMnemonic(mnemonic: string): DerivedWallet {
   const seed = bip39.mnemonicToSeedSync(mnemonic);
 
   const bitcoinNode = bip32.fromSeed(seed, networks.bitcoin).derivePath(BITCOIN_PATH);
