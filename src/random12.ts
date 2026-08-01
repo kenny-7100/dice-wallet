@@ -4,8 +4,14 @@ import { deriveWalletFrom128BitEntropy } from "./wallet.js";
 
 const entropyHex = `0x${randomBytes(16).toString("hex")}`;
 const wallet = deriveWalletFrom128BitEntropy(entropyHex);
+const indent = "     ";
 
-console.log("Mnemonic:", wallet.mnemonic);
-console.log("Bitcoin Taproot address:", wallet.bitcoin.address);
-console.log("Ethereum address:", wallet.ethereum.address);
-console.log("Solana address:", wallet.solana.address);
+console.log(`🔑 Mnemonic:\n${indent}${wallet.mnemonic}\n`);
+console.log(
+  `🟢 Bitcoin Native SegWit address:\n${indent}${wallet.bitcoin.nativeSegwit.address}\n`,
+);
+console.log(
+  `🟠 Bitcoin Taproot address:\n${indent}${wallet.bitcoin.taproot.address} (Not recommended for quantum resistance)\n`,
+);
+console.log(`💎 Ethereum address:\n${indent}${wallet.ethereum.address}\n`);
+console.log(`🚀 Solana address:\n${indent}${wallet.solana.address}\n`);

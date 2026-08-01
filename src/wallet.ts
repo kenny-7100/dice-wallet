@@ -7,7 +7,8 @@ import { HDNodeWallet } from "ethers";
 import * as ecc from "tiny-secp256k1";
 import nacl from "tweetnacl";
 
-export const BITCOIN_PATH = "m/86'/0'/0'/0/0" as const;
+export const BITCOIN_NATIVE_SEGWIT_PATH = "m/84'/0'/0'/0/0" as const;
+export const BITCOIN_TAPROOT_PATH = "m/86'/0'/0'/0/0" as const;
 export const ETHEREUM_PATH = "m/44'/60'/0'/0/0" as const;
 export const SOLANA_PATH = "m/44'/501'/0'/0'" as const;
 
@@ -20,8 +21,14 @@ export interface DerivedWallet {
   mnemonic: string;
   bitcoin: {
     network: "mainnet";
-    path: typeof BITCOIN_PATH;
-    address: string;
+    nativeSegwit: {
+      path: typeof BITCOIN_NATIVE_SEGWIT_PATH;
+      address: string;
+    };
+    taproot: {
+      path: typeof BITCOIN_TAPROOT_PATH;
+      address: string;
+    };
   };
   ethereum: {
     path: typeof ETHEREUM_PATH;
@@ -60,15 +67,22 @@ export function deriveWalletFrom128BitEntropy(entropyHex: string): DerivedWallet
 function deriveWalletFromMnemonic(mnemonic: string): DerivedWallet {
   const seed = bip39.mnemonicToSeedSync(mnemonic);
 
-  const bitcoinNode = bip32.fromSeed(seed, networks.bitcoin).derivePath(BITCOIN_PATH);
-  const internalPubkey = bitcoinNode.publicKey.subarray(1, 33);
-  const bitcoinAddress = payments.p2tr({
+  const bitcoinRoot = bip32.fromSeed(seed, networks.bitcoin);
+  const nativeSegwitNode = bitcoinRoot.derivePath(BITCOIN_NATIVE_SEGWIT_PATH);
+  const nativeSegwitAddress = payments.p2wpkh({
+    pubkey: nativeSegwitNode.publicKey,
+    network: networks.bitcoin,
+  }).address;
+
+  const taprootNode = bitcoinRoot.derivePath(BITCOIN_TAPROOT_PATH);
+  const internalPubkey = taprootNode.publicKey.subarray(1, 33);
+  const taprootAddress = payments.p2tr({
     internalPubkey,
     network: networks.bitcoin,
   }).address;
 
-  if (!bitcoinAddress) {
-    throw new Error("failed to derive Bitcoin Taproot address");
+  if (!nativeSegwitAddress || !taprootAddress) {
+    throw new Error("failed to derive Bitcoin addresses");
   }
 
   const ethereumAddress = HDNodeWallet.fromPhrase(
@@ -84,8 +98,14 @@ function deriveWalletFromMnemonic(mnemonic: string): DerivedWallet {
     mnemonic,
     bitcoin: {
       network: "mainnet",
-      path: BITCOIN_PATH,
-      address: bitcoinAddress,
+      nativeSegwit: {
+        path: BITCOIN_NATIVE_SEGWIT_PATH,
+        address: nativeSegwitAddress,
+      },
+      taproot: {
+        path: BITCOIN_TAPROOT_PATH,
+        address: taprootAddress,
+      },
     },
     ethereum: {
       path: ETHEREUM_PATH,

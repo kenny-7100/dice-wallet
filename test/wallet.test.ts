@@ -2,7 +2,8 @@ import assert from "node:assert/strict";
 import { describe, it } from "node:test";
 
 import {
-  BITCOIN_PATH,
+  BITCOIN_NATIVE_SEGWIT_PATH,
+  BITCOIN_TAPROOT_PATH,
   ETHEREUM_PATH,
   SOLANA_PATH,
   deriveWalletFrom128BitEntropy,
@@ -24,11 +25,16 @@ describe("deriveWalletFromEntropy", () => {
     const wallet = deriveWalletFromEntropy(ZERO_ENTROPY);
 
     assert.equal(wallet.bitcoin.network, "mainnet");
-    assert.equal(wallet.bitcoin.path, BITCOIN_PATH);
+    assert.equal(wallet.bitcoin.nativeSegwit.path, BITCOIN_NATIVE_SEGWIT_PATH);
+    assert.equal(wallet.bitcoin.taproot.path, BITCOIN_TAPROOT_PATH);
     assert.equal(wallet.ethereum.path, ETHEREUM_PATH);
     assert.equal(wallet.solana.path, SOLANA_PATH);
     assert.equal(
-      wallet.bitcoin.address,
+      wallet.bitcoin.nativeSegwit.address,
+      "bc1qzmtrqsfuaf6l6kkcsseumq26ukaphfj9skkug6",
+    );
+    assert.equal(
+      wallet.bitcoin.taproot.address,
       "bc1p68a8a3vuv2cxzs7e2gjc5v3qy3zdnfaxwftyqe9k9nquvm6r4w2ssldtzp",
     );
     assert.equal(
@@ -75,7 +81,8 @@ describe("deriveWalletFrom128BitEntropy", () => {
 
     assert.equal(wallet.mnemonic, `${"abandon ".repeat(11)}about`);
     assert.equal(wallet.mnemonic.split(" ").length, 12);
-    assert.match(wallet.bitcoin.address, /^bc1p[ac-hj-np-z02-9]{58}$/);
+    assert.match(wallet.bitcoin.nativeSegwit.address, /^bc1q[ac-hj-np-z02-9]{38}$/);
+    assert.match(wallet.bitcoin.taproot.address, /^bc1p[ac-hj-np-z02-9]{58}$/);
     assert.match(wallet.ethereum.address, /^0x[0-9A-Fa-f]{40}$/);
     assert.match(wallet.solana.address, /^[1-9A-HJ-NP-Za-km-z]{32,44}$/);
   });
