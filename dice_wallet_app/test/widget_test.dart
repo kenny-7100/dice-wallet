@@ -35,13 +35,17 @@ void main() {
     await tester.tap(find.text('开始记录'));
     await tester.pumpAndSettle();
     expect(find.text('第 1 次'), findsOneWidget);
+    expect(find.text('× 0'), findsNWidgets(2));
     await tester.tap(find.text('正面'));
     await tester.pump();
     expect(find.text('1 / 128'), findsOneWidget);
     expect(find.text('0'), findsOneWidget);
+    expect(find.text('× 1'), findsOneWidget);
+    expect(find.text('× 0'), findsOneWidget);
     await tester.tap(find.byIcon(Icons.undo));
     await tester.pump();
     expect(find.text('0 / 128'), findsOneWidget);
+    expect(find.text('× 0'), findsNWidgets(2));
 
     Navigator.of(tester.element(find.text('0 / 128'))).pop();
     await tester.pumpAndSettle();

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import '../core/wallet_service.dart';
 import '../l10n/app_strings.dart';
@@ -20,6 +21,7 @@ class _CoinFlipScreenState extends State<CoinFlipScreen> {
   void _record(bool heads) {
     if (_working || _flips.length == widget.flipCount) return;
     setState(() => _flips.add(heads));
+    SystemSound.play(SystemSoundType.click);
     if (_flips.length == widget.flipCount) _finish();
   }
 
@@ -172,6 +174,8 @@ class _CoinFlipScreenState extends State<CoinFlipScreen> {
   Widget _progressView(BuildContext context) {
     final strings = AppStrings.of(context);
     final remaining = widget.flipCount - _flips.length;
+    final headsCount = _flips.where((heads) => heads).length;
+    final tailsCount = _flips.length - headsCount;
     return Column(
       children: [
         const SizedBox(height: 12),
@@ -224,6 +228,7 @@ class _CoinFlipScreenState extends State<CoinFlipScreen> {
                 child: _CoinButton(
                   label: strings.text('heads'),
                   bit: '0',
+                  count: headsCount,
                   color: const Color(0xFF176B4D),
                   onTap: () => _record(true),
                 ),
@@ -233,6 +238,7 @@ class _CoinFlipScreenState extends State<CoinFlipScreen> {
                 child: _CoinButton(
                   label: strings.text('tails'),
                   bit: '1',
+                  count: tailsCount,
                   color: const Color(0xFF9A6514),
                   onTap: () => _record(false),
                 ),
@@ -257,17 +263,19 @@ class _CoinButton extends StatelessWidget {
   const _CoinButton({
     required this.label,
     required this.bit,
+    required this.count,
     required this.color,
     required this.onTap,
   });
   final String label;
   final String bit;
+  final int count;
   final Color color;
   final VoidCallback onTap;
   @override
   Widget build(BuildContext context) => Semantics(
     button: true,
-    label: '$label, $bit',
+    label: '$label, $bit, $count',
     child: SizedBox(
       height: 138,
       child: Material(
@@ -299,6 +307,16 @@ class _CoinButton extends StatelessWidget {
                 AppStrings.of(context).text('recordedAs', {'bit': bit}),
                 textAlign: TextAlign.center,
                 style: const TextStyle(color: Colors.white70, fontSize: 14),
+              ),
+              const SizedBox(height: 6),
+              Text(
+                '× $count',
+                textDirection: TextDirection.ltr,
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w700,
+                ),
               ),
             ],
           ),
