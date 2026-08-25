@@ -22,6 +22,7 @@ class _CoinFlipScreenState extends State<CoinFlipScreen> {
     if (_working || _flips.length == widget.flipCount) return;
     setState(() => _flips.add(heads));
     SystemSound.play(SystemSoundType.click);
+    HapticFeedback.lightImpact();
     if (_flips.length == widget.flipCount) _finish();
   }
 
